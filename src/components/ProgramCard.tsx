@@ -11,7 +11,7 @@ export function ProgramCard({ program }: { program: Program }) {
   return (
     <article className="card-elevated flex h-full flex-col overflow-hidden">
       <Link
-        to="/store/$slug"
+        to="/programs/$slug"
         params={{ slug: program.slug }}
         aria-label={`عرض تفاصيل ${program.name}`}
       >
@@ -61,7 +61,7 @@ export function ProgramCard({ program }: { program: Program }) {
 
         <div className="mt-auto grid gap-2 pt-2 sm:grid-cols-2">
           <Link
-            to="/store/$slug"
+            to="/programs/$slug"
             params={{ slug: program.slug }}
             className="inline-flex items-center justify-center rounded-xl border border-border px-3 py-2.5 text-sm font-bold text-navy transition-colors hover:bg-muted"
           >
@@ -76,7 +76,7 @@ export function ProgramCard({ program }: { program: Program }) {
           </Link>
           <WhatsAppLink
             className="sm:col-span-2"
-            message={`مرحباً، أرغب بالاستفسار عن: ${program.name}`}
+            message={`السلام عليكم، أرغب في الاستفسار عن ${program.name}.`}
             variant="outline"
           >
             استفسار عبر WhatsApp
