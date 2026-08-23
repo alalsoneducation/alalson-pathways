@@ -123,7 +123,7 @@ function ProgramDetails() {
       <PageHeader
         eyebrow={`${departmentName(p.department)} • ${p.type}`}
         title={p.name}
-        subtitle={p.summary}
+        subtitle={p.summary ?? ""}
       />
 
       <section className="container-page section-y">
