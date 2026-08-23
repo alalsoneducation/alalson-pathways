@@ -39,6 +39,7 @@ export function ProgramImage({
     >
       {showImage ? (
         <img
+          ref={imgRef}
           src={program.image}
           alt={program.name}
           loading="lazy"
