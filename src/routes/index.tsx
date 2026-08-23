@@ -55,8 +55,8 @@ function HomePage() {
       <Hero />
 
       <section className="container-page -mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {highlightItems.map((h, i) => {
-          const Icon = highlightIcons[i];
+        {highlightItems.map((h) => {
+          const Icon = h.icon;
           return (
             <article key={h.title} className="card-elevated flex items-start gap-3 p-5">
               <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground">
