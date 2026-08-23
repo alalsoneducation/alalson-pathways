@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GraduationCap } from "lucide-react";
 
 import type { Program } from "@/data/programs";
