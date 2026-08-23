@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as DepartmentsRouteImport } from './routes/departments'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as StoreRouteImport } from './routes/store'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 
@@ -30,6 +31,11 @@ const DepartmentsRoute = DepartmentsRouteImport.update({
   path: '/departments',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoreRoute = StoreRouteImport.update({
   id: '/store',
   path: '/store',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/departments': typeof DepartmentsRoute
+  '/register': typeof RegisterRoute
   '/store': typeof StoreRoute
   '/programs/$slug': typeof ProgramsSlugRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/departments': typeof DepartmentsRoute
+  '/register': typeof RegisterRoute
   '/store': typeof StoreRoute
   '/programs/$slug': typeof ProgramsSlugRoute
 }
@@ -60,22 +68,32 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/departments': typeof DepartmentsRoute
+  '/register': typeof RegisterRoute
   '/store': typeof StoreRoute
   '/programs/$slug': typeof ProgramsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/departments' | '/store' | '/programs/$slug'
+  fullPaths:
+    '/' | '/about' | '/departments' | '/register' | '/store' | '/programs/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/departments' | '/store' | '/programs/$slug'
+  to:
+    '/' | '/about' | '/departments' | '/register' | '/store' | '/programs/$slug'
   id:
-    '__root__' | '/' | '/about' | '/departments' | '/store' | '/programs/$slug'
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/departments'
+    | '/register'
+    | '/store'
+    | '/programs/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   DepartmentsRoute: typeof DepartmentsRoute
+  RegisterRoute: typeof RegisterRoute
   StoreRoute: typeof StoreRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
 }
@@ -103,6 +121,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DepartmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/store': {
       id: '/store'
       path: '/store'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   DepartmentsRoute: DepartmentsRoute,
+  RegisterRoute: RegisterRoute,
   StoreRoute: StoreRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
 }
