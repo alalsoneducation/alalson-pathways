@@ -44,11 +44,11 @@ export const Route = createFileRoute("/store")({
 
 function StorePage() {
   const search = Route.useSearch();
-  const [query, setQuery] = useState(search.q ?? "");
+  const [query, setQuery] = useState(search.q);
   const [filters, setFilters] = useState<Filters>({
     ...defaultFilters,
-    dept: search.dept ?? "all",
-    type: search.type ?? "all",
+    dept: search.dept,
+    type: search.type,
   });
 
   const results = useMemo(() => {
