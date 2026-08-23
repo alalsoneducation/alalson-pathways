@@ -54,7 +54,7 @@ function HomePage() {
     <>
       <Hero />
 
-      <section className="container-page -mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="container-page relative z-10 -mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {highlightItems.map((h) => {
           const Icon = h.icon;
           return (
