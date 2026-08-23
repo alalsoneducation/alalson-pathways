@@ -17,13 +17,17 @@ import { site } from "@/data/site";
 const description =
   "متجر الألسن: تصفح الدبلومات والدورات والبرامج التدريبية التي يقدمها معهد الألسن الدولي مع البحث والتصفية حسب القسم والنوع والرسوم.";
 
-type StoreSearch = { dept?: DepartmentId | "all"; type?: ProgramType | "all"; q?: string };
+type StoreSearch = {
+  dept: DepartmentId | "all";
+  type: ProgramType | "all";
+  q: string;
+};
 
 export const Route = createFileRoute("/store")({
   validateSearch: (search: Record<string, unknown>): StoreSearch => ({
-    dept: (search.dept as StoreSearch["dept"]) || undefined,
-    type: (search.type as StoreSearch["type"]) || undefined,
-    q: typeof search.q === "string" ? search.q.slice(0, 100) : undefined,
+    dept: (search["dept"] as StoreSearch["dept"]) ?? "all",
+    type: (search["type"] as StoreSearch["type"]) ?? "all",
+    q: typeof search["q"] === "string" ? search["q"].slice(0, 100) : "",
   }),
   head: () => ({
     meta: [
