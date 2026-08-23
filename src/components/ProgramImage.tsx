@@ -20,7 +20,14 @@ export function ProgramImage({
   rounded?: string;
 }) {
   const [failed, setFailed] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const showImage = Boolean(program.image) && !failed;
+
+  // الصور المرفوعة لاحقاً: إن لم تكتمل الصورة بعد الترطيب نعرض البديل تلقائياً
+  useEffect(() => {
+    const el = imgRef.current;
+    if (el && el.complete && el.naturalWidth === 0) setFailed(true);
+  }, [program.image]);
 
   return (
     <div
