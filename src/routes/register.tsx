@@ -8,8 +8,8 @@ const description =
   "سجل في دبلومات ودورات معهد الألسن الدولي: املأ نموذج التسجيل وسيتم التواصل معك لاستكمال إجراءات القبول.";
 
 export const Route = createFileRoute("/register")({
-  validateSearch: (search: Record<string, unknown>): { program?: string } => ({
-    program: typeof search.program === "string" ? search.program.slice(0, 80) : undefined,
+  validateSearch: (search: Record<string, unknown>): { program: string } => ({
+    program: typeof search["program"] === "string" ? search["program"].slice(0, 80) : "",
   }),
   head: () => ({
     meta: [
