@@ -18,16 +18,16 @@ const description =
   "متجر الألسن: تصفح الدبلومات والدورات والبرامج التدريبية التي يقدمها معهد الألسن الدولي مع البحث والتصفية حسب القسم والنوع والرسوم.";
 
 type StoreSearch = {
-  dept: DepartmentId | "all";
-  type: ProgramType | "all";
-  q: string;
+  dept?: DepartmentId | "all" | undefined;
+  type?: ProgramType | "all" | undefined;
+  q?: string | undefined;
 };
 
 export const Route = createFileRoute("/store")({
   validateSearch: (search: Record<string, unknown>): StoreSearch => ({
-    dept: (search["dept"] as StoreSearch["dept"]) ?? "all",
-    type: (search["type"] as StoreSearch["type"]) ?? "all",
-    q: typeof search["q"] === "string" ? search["q"].slice(0, 100) : "",
+    dept: (search["dept"] as StoreSearch["dept"]) ?? undefined,
+    type: (search["type"] as StoreSearch["type"]) ?? undefined,
+    q: typeof search["q"] === "string" ? search["q"].slice(0, 100) : undefined,
   }),
   head: () => ({
     meta: [
@@ -44,11 +44,11 @@ export const Route = createFileRoute("/store")({
 
 function StorePage() {
   const search = Route.useSearch();
-  const [query, setQuery] = useState(search.q);
+  const [query, setQuery] = useState(search.q ?? "");
   const [filters, setFilters] = useState<Filters>({
     ...defaultFilters,
-    dept: search.dept,
-    type: search.type,
+    dept: search.dept ?? "all",
+    type: search.type ?? "all",
   });
 
   const results = useMemo(() => {
