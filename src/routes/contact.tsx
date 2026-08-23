@@ -35,10 +35,10 @@ function ContactPage() {
       <section className="container-page section-y">
         <div className="grid gap-5 lg:grid-cols-3">
           {contactGroups.map((g) => (
-            <article key={g.title} className="card-elevated p-6">
+            <article key={g.label} className="card-elevated p-6">
               <h2 className="flex items-center gap-2 text-base font-extrabold text-navy">
                 <Phone className="size-4 text-cyan" aria-hidden />
-                {g.title}
+                {g.label}
               </h2>
               <ul className="mt-4 grid gap-2">
                 {g.numbers.map((n) => (

@@ -52,7 +52,7 @@ export function buildRegistrationMessage(v: RegistrationValues) {
     .join("\n");
 }
 
-export function RegistrationForm({ defaultProgram }: { defaultProgram?: string }) {
+export function RegistrationForm({ defaultProgram }: { defaultProgram?: string | undefined }) {
   const [values, setValues] = useState<RegistrationValues>({
     fullName: "",
     phone: "",
@@ -244,7 +244,7 @@ function Field({
 }: {
   id: string;
   label: string;
-  error?: string;
+  error?: string | undefined;
   children: React.ReactNode;
 }) {
   return (

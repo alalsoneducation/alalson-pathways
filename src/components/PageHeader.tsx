@@ -4,8 +4,8 @@ export function PageHeader({
   eyebrow,
 }: {
   title: string;
-  subtitle?: string;
-  eyebrow?: string;
+  subtitle?: string | undefined;
+  eyebrow?: string | undefined;
 }) {
   return (
     <section className="bg-brand-gradient text-primary-foreground">
