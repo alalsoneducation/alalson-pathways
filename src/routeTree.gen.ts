@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BranchesRouteImport } from './routes/branches'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DepartmentsRouteImport } from './routes/departments'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as StoreRouteImport } from './routes/store'
+import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BranchesRoute = BranchesRouteImport.update({
+  id: '/branches',
+  path: '/branches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepartmentsRoute = DepartmentsRouteImport.update({
+  id: '/departments',
+  path: '/departments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreRoute = StoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
+  id: '/programs/$slug',
+  path: '/programs/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/branches': typeof BranchesRoute
+  '/contact': typeof ContactRoute
+  '/departments': typeof DepartmentsRoute
+  '/register': typeof RegisterRoute
+  '/store': typeof StoreRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/branches': typeof BranchesRoute
+  '/contact': typeof ContactRoute
+  '/departments': typeof DepartmentsRoute
+  '/register': typeof RegisterRoute
+  '/store': typeof StoreRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/branches': typeof BranchesRoute
+  '/contact': typeof ContactRoute
+  '/departments': typeof DepartmentsRoute
+  '/register': typeof RegisterRoute
+  '/store': typeof StoreRoute
+  '/programs/$slug': typeof ProgramsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/branches'
+    | '/contact'
+    | '/departments'
+    | '/register'
+    | '/store'
+    | '/programs/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/branches'
+    | '/contact'
+    | '/departments'
+    | '/register'
+    | '/store'
+    | '/programs/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/branches'
+    | '/contact'
+    | '/departments'
+    | '/register'
+    | '/store'
+    | '/programs/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BranchesRoute: typeof BranchesRoute
+  ContactRoute: typeof ContactRoute
+  DepartmentsRoute: typeof DepartmentsRoute
+  RegisterRoute: typeof RegisterRoute
+  StoreRoute: typeof StoreRoute
+  ProgramsSlugRoute: typeof ProgramsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/branches': {
+      id: '/branches'
+      path: '/branches'
+      fullPath: '/branches'
+      preLoaderRoute: typeof BranchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/departments': {
+      id: '/departments'
+      path: '/departments'
+      fullPath: '/departments'
+      preLoaderRoute: typeof DepartmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store': {
+      id: '/store'
+      path: '/store'
+      fullPath: '/store'
+      preLoaderRoute: typeof StoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/$slug': {
+      id: '/programs/$slug'
+      path: '/programs/$slug'
+      fullPath: '/programs/$slug'
+      preLoaderRoute: typeof ProgramsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BranchesRoute: BranchesRoute,
+  ContactRoute: ContactRoute,
+  DepartmentsRoute: DepartmentsRoute,
+  RegisterRoute: RegisterRoute,
+  StoreRoute: StoreRoute,
+  ProgramsSlugRoute: ProgramsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
