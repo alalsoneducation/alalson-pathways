@@ -33,12 +33,11 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const highlightIcons = [CalendarRange, Layers, UserCheck, Building2];
 const highlightItems = [
-  { title: "منذ 2016", body: "سنوات من الخبرة" },
-  { title: "برامج ودبلومات متنوعة", body: "في العديد من المجالات" },
-  { title: "كوادر مؤهلة", body: "علمياً ومهنياً" },
-  { title: "بيئة تعليمية متطورة", body: "ومناهج حديثة" },
+  { icon: CalendarRange, title: "منذ 2016", body: "سنوات من الخبرة" },
+  { icon: Layers, title: "برامج ودبلومات متنوعة", body: "في العديد من المجالات" },
+  { icon: UserCheck, title: "كوادر مؤهلة", body: "علمياً ومهنياً" },
+  { icon: Building2, title: "بيئة تعليمية متطورة", body: "ومناهج حديثة" },
 ];
 
 const whyItems = [
